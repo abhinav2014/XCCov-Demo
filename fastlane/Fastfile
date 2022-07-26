@@ -44,7 +44,8 @@ platform :ios do
     xcov(
       workspace: @workspace_path,
       scheme: @scheme,
-      output_directory: './fastlane/CodeCoverage'
+      output_directory: './fastlane/CodeCoverage',
+	markdown_report: true
     )
   end
 
