@@ -40,6 +40,15 @@ platform :ios do
     sh "chmod 775 ../scripts/run_ui_tests.sh"
   end
 
+  desc "coverage"
+  lane :run_xcov do 
+    xcov(
+      workspace: @workspace_path,
+      scheme: @scheme,
+      output_directory: './fastlane/CodeCoverage'
+    )
+  end
+
   desc "Runs tests"
   lane :run_test_suite do |options|
     prepare_test_parameters
@@ -91,15 +100,6 @@ platform :ios do
       xcargs: @xcargs,
       derived_data_path: @derived_data_path
      )
-  end
-
-  desc "coverage"
-  lane : run_xcov do 
-    xcov(
-      workspace: @workspace_path,
-      scheme: @scheme,
-      output_directory: './fastlane/CodeCoverage'
-    )
   end
 
   private_lane :run_smoke_script do |options|
