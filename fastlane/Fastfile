@@ -1,0 +1,114 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "180"
+    ENV["APPCENTER_DISTRIBUTE_DESTINATIONS"] = "Tag: internal"
+
+    @workspace_path = "./XCCov-Demo.xcworkspace"
+    @project_path = "./XCCov-Demo.xcodeproj"
+    @plist_path = "XCCov-Demo/Info.plist"
+    @version = get_version_number(xcodeproj: @project_path)
+    @scheme = "XCCov-Demo"
+    @appcenter_api_token = nil
+  end
+
+  private_lane :prepare_test_parameters do |options|    
+    @xcargs = "SWIFT_ACTIVE_COMPILATION_CONDITIONS='$(inherited) USE_BOOST_MOCK_API'"
+    @derived_data_path = "./test_derived_data"
+    @smoke_ui_test_suite = File.expand_path("../submodules/wifi-app-test-automation/suites/SanityCheck.xml")
+    @all_ui_test_suite = File.expand_path("../submodules/wifi-app-test-automation/suites/All.xml")
+    ENV["IOS_APP"] = File.expand_path("../test_derived_data/Build/Products/Debug-iphonesimulator/XCCov-Demo.app") # this will be grabbed by the UI test (Kotlin code) to initialize simulator
+    ENV["TARGET_DEVICE_CONFIG"] = File.expand_path("../submodules/wifi-app-test-automation/src/main/resources/capabilities/emulator_ios8plus.json")
+    sh "chmod 775 ../scripts/run_ui_tests.sh"
+  end
+
+  desc "Runs tests"
+  lane :run_test_suite do |options|
+    prepare_test_parameters
+    run_unit_tests
+    
+    smoke_test_error = nil
+    if !@is_cron_job
+      begin
+        run_smoke_script
+      rescue => ex
+        smoke_test_error = ex
+      end
+    end
+    
+    all_test_error = nil
+    if @is_cron_job
+      begin
+        run_all_script
+      rescue => ex
+        all_test_error = ex
+      end      
+    end
+
+    if smoke_test_error != nil || all_test_error != nil
+      raise "Some UI tests failed. Look into the previous messages to verify exact error."
+    end
+  end
+
+  desc "Runs smoke UI tests"
+  lane :run_smoke_tests_only do |options|
+    prepare_test_parameters
+    run_unit_tests
+    run_smoke_script    
+  end
+
+  desc "Runs All UI tests"
+  lane :run_all_tests_only do |options|
+    prepare_test_parameters
+    run_unit_tests    
+    run_all_script
+  end
+
+  desc "Runs unit tests"
+  private_lane :run_unit_tests do |options|
+    scan( # fix integration ios13
+      workspace: @workspace_path,
+      scheme: @scheme,
+      skip_slack: true,
+      xcargs: @xcargs,
+      derived_data_path: @derived_data_path
+     )
+  end
+
+  desc "coverage"
+  lane : run_xcov do 
+    xcov(
+      workspace: @workspace_path,
+      scheme: @scheme,
+      output_directory: './fastlane/CodeCoverage'
+    )
+  end
+
+  private_lane :run_smoke_script do |options|
+    # sh "UI_TEST_SUITE='#@smoke_ui_test_suite' ../scripts/run_ui_tests.sh"
+  end
+  
+  private_lane :run_all_script do |options|
+   # sh "UI_TEST_SUITE='#@all_ui_test_suite' ../scripts/run_ui_tests.sh"
+  end
+
+  
+end
