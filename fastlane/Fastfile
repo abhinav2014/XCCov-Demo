@@ -37,7 +37,6 @@ platform :ios do
     @all_ui_test_suite = File.expand_path("../submodules/wifi-app-test-automation/suites/All.xml")
     ENV["IOS_APP"] = File.expand_path("../test_derived_data/Build/Products/Debug-iphonesimulator/XCCov-Demo.app") # this will be grabbed by the UI test (Kotlin code) to initialize simulator
     ENV["TARGET_DEVICE_CONFIG"] = File.expand_path("../submodules/wifi-app-test-automation/src/main/resources/capabilities/emulator_ios8plus.json")
-    sh "chmod 775 ../scripts/run_ui_tests.sh"
   end
 
   desc "coverage"
