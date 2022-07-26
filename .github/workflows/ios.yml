@@ -29,8 +29,6 @@ jobs:
           xcode-version: '13.1'
       - name: Install Ruby Dependencies
         run: bundle install
-      - name: Appcenter Plugin
-        run: bundle exec fastlane add_plugin appcenter
       - name: Install Fastlane
         run: gem install fastlane -no-rdoc --no-document
       - name: Run Unit Test
