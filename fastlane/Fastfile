@@ -32,7 +32,6 @@ platform :ios do
 
   private_lane :prepare_test_parameters do |options|    
     @xcargs = "SWIFT_ACTIVE_COMPILATION_CONDITIONS='$(inherited) USE_BOOST_MOCK_API'"
-    @derived_data_path = "./test_derived_data"
     @smoke_ui_test_suite = File.expand_path("../submodules/wifi-app-test-automation/suites/SanityCheck.xml")
     @all_ui_test_suite = File.expand_path("../submodules/wifi-app-test-automation/suites/All.xml")
     ENV["IOS_APP"] = File.expand_path("../test_derived_data/Build/Products/Debug-iphonesimulator/XCCov-Demo.app") # this will be grabbed by the UI test (Kotlin code) to initialize simulator
@@ -98,7 +97,6 @@ platform :ios do
       scheme: @scheme,
       skip_slack: true,
       xcargs: @xcargs,
-      derived_data_path: @derived_data_path
      )
   end
 
