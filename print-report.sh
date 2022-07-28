@@ -1,2 +1,2 @@
-file = $(find ./fastlane/CodeCoverage/tmp/ -name "report.json*")
+file=$(find ./fastlane/CodeCoverage/tmp/ -name "report.json*")
 cat $file
