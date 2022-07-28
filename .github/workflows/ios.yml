@@ -35,5 +35,7 @@ jobs:
         run: bundle exec fastlane run_test_suite
       - name: Run xcov
         run: bundle exec fastlane run_xcov
+      - name: Run Danger
+        run: bundle exec danger --verbose
       - name: show contents of report file
         run: sh print-report.sh
