@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "master" ]
+    branches: [ "masters" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "masters" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,7 +34,6 @@ jobs:
       - name: Run Unit Test
         run: bundle exec fastlane run_test_suite
       - name: Run xcov
-              sh print-report.sh
         run: bundle exec fastlane run_xcov
       - name: Run Danger
         run: bundle exec danger --verbose
