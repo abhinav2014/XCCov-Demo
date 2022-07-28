@@ -44,7 +44,7 @@ platform :ios do
       workspace: @workspace_path,
       scheme: @scheme,
       output_directory: './fastlane/CodeCoverage',
-	markdown_report: true
+	html_report: true
     )
   end
 

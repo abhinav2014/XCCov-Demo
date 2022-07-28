@@ -39,5 +39,5 @@ jobs:
         run: bundle exec danger --verbose
       - name: show contents of report files
         run: sh print-report.sh
-      - name: Code Coverage Summary
-        uses: irongut/CodeCoverageSummary@v1.3.0-beta
+      - name: Code Coverage Report
+        uses: romeovs/lcov-reporter-action@v0.2.11
