@@ -1,5 +1,7 @@
 #  xccov - Xcode Code Coverage for Humans 
 
+[![codecov](https://codecov.io/gh/abhinav2014/XCCov-Demo/branch/master/graph/badge.svg?token=U0BR49WC1C)](https://codecov.io/gh/abhinav2014/XCCov-Demo)
+
 With Xcode 9.3, we have new command line tool `xccov` to view Xcode Code Coverage Reports in human readable format. 
 
 This is quick demo of the `xccov` command line utility with black app. 
