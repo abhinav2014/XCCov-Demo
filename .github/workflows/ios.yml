@@ -32,13 +32,32 @@ jobs:
         run: gem install fastlane -no-rdoc --no-document
       - name: Run Unit Test
         run: bundle exec fastlane run_test_suite
-      - name: Run xcov
-        run: bundle exec fastlane run_xcov
-      - name: Run codecov
-        run: sh codecove.sh
+#      - name: Run xcov
+#        run: bundle exec fastlane run_xcov
+      - run: |
+              bundle config path vendor/bundle
+              bundle install --without=documentation --jobs 4 --retry 3
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: get_branch
+      - run: bundle exec slather
+        env:
+           GIT_BRANCH: ${{ steps.get_branch.outputs.branch }}
+           CI_PULL_REQUEST: ${{ github.event.number }}
+           COVERAGE_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           repo_token: 'J20Mo3Sb32CLmwu3gJTkj5xLzFKiXOr8R'
+#      - uses: checkity/upload@v1
+#        with:
+#           file-pattern: '**/jacoco.xml,**/lcov.info'
+#           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+#      - name: Run codecov
+#        run: sh codecove.sh
 
 #      - name: show contents of report files
 #        run: sh print-report.sh
+
 #      - name: Run Danger
 #        run: bundle exec danger --verbose
 #      - name: Danger usage
