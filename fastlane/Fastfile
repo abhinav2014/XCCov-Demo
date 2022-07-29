@@ -22,6 +22,7 @@ platform :ios do
     ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "180"
     ENV["APPCENTER_DISTRIBUTE_DESTINATIONS"] = "Tag: internal"
     ENV["CODECOV_TOKEN"] = "3e2e8517-275c-4fbf-bda7-d01f763cd78f"
+    ENV["COVERALLS_REPO_TOKEN"] = "J20Mo3Sb32CLmwu3gJTkj5xLzFKiXOr8R"
 
     @workspace_path = "./XCCov-Demo.xcworkspace"
     @project_path = "./XCCov-Demo.xcodeproj"
