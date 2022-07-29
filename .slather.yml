@@ -1,6 +1,6 @@
 coverage_service: coveralls
 xcodeproj: ./XCCov-Demo.xcodeproj
-xcworkspace: ./XCCov-Demo.xcworkspace
+workspace: ./XCCov-Demo.xcworkspace
 scheme: XCCov-Demo
 ignore:
   - Pods/*
