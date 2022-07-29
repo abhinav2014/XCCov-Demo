@@ -5,8 +5,8 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "master" ]
+#  push:
+#    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -39,5 +39,13 @@ jobs:
         run: bundle exec danger --verbose
       - name: show contents of report files
         run: sh print-report.sh
-      - name: Code Coverage Report
-        uses: romeovs/lcov-reporter-action@v0.2.11
+    - uses: MeilCli/danger-action@v5
+        with:
+           plugins_file: 'Gemfile'
+           install_path: 'vendor/bundle'
+           danger_file: 'Dangerfile'
+           danger_id: 'danger-pr'
+        env:
+           DANGER_GITHUB_API_TOKEN: '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'
+#      - name: Code Coverage Report
+#        uses: romeovs/lcov-reporter-action@v0.2.11
