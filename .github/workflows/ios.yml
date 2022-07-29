@@ -34,9 +34,9 @@ jobs:
         run: bundle exec fastlane run_test_suite
 #      - name: Run xcov
 #        run: bundle exec fastlane run_xcov
-      - run: |
-              bundle config path vendor/bundle
-              bundle install --without=documentation --jobs 4 --retry 3
+#      - run: |
+#              bundle config path vendor/bundle
+#              bundle install --without=documentation --jobs 4 --retry 3
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
