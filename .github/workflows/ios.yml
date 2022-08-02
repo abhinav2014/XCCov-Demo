@@ -32,12 +32,12 @@ jobs:
         run: gem install fastlane -no-rdoc --no-document
       - name: swift docc action
         uses: fwcd/swift-docc-action@v1
-          with:
-            target: "XCCov-Demo"
-            output: ./docs
-            hosting-base-path: "XCCov-Demo"
-            disable-indexing: 'true'
-            transform-for-static-hosting: 'true'
+        with:
+          target: "XCCov-Demo"
+          output: ./docs
+          hosting-base-path: "XCCov-Demo"
+          disable-indexing: 'true'
+          transform-for-static-hosting: 'true'
 
 #      - name: Run Unit Test
 #        run: bundle exec fastlane run_test_suite
