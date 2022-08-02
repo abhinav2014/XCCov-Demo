@@ -15,7 +15,7 @@ jobs:
       - name: Generate Documentation
         uses: SwiftDocOrg/swift-doc@master
         with:
-          inputs: "Sources"
+          inputs: "XCCov-Demo"
           module-name: XCCov-Demo
           output: "Documentation"
       - name: do git push
