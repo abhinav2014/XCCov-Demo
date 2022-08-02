@@ -18,7 +18,7 @@ jobs:
           mkdir Sources/XCCov-Demo/XCCov-Demo.docc
           swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
 #      - uses: ./
-      - run: docc convert
+      - run: $(xcrun -find docc) convert
           XCCov-Demo/Sources/XCCov-Demo/XCCov-Demo.docc
           --fallback-display-name XCCov-Demo
           --fallback-bundle-identifier XCCov-Demo
