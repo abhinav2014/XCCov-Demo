@@ -17,7 +17,6 @@ jobs:
           swift package init
           mkdir Sources/XCCov-Demo/XCCov-Demo.docc
           swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
-#      - uses: ./
       - run: $(xcrun -find docc) convert
           XCCov-Demo/Sources/XCCov-Demo/XCCov-Demo.docc
           --fallback-display-name XCCov-Demo
@@ -25,6 +24,15 @@ jobs:
           --fallback-bundle-version 1
           --additional-symbol-graph-dir XCCov-Demo/.build
           --output-path docs
+      - name: do git push
+        run: |
+              git config --global user.email "abhinav.dobhal@telusinternational.com"
+              git config --global user.name "abhinav-ti"
+
+              git add .
+              git commit -m "message"
+
+              git push https://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@github.com/abhinav2014/XCCov-Demo.git master
 
 
 #jobs:
