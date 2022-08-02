@@ -13,18 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          mkdir DemoSwiftPackage
-          cd DemoSwiftPackage
+          mkdir XCCov-Demo
+          cd XCCov-Demo
           swift package init
-          mkdir Sources/DemoSwiftPackage/DemoSwiftPackage.docc
+          mkdir Sources/XCCov-Demo/XCCov-Demo.docc
           swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
       - uses: ./
       - run: docc convert
-          DemoSwiftPackage/Sources/DemoSwiftPackage/DemoSwiftPackage.docc
-          --fallback-display-name DemoSwiftPackage
-          --fallback-bundle-identifier DemoSwiftPackage
+          XCCov-Demo/Sources/XCCov-Demo/XCCov-Demo.docc
+          --fallback-display-name XCCov-Demo
+          --fallback-bundle-identifier XCCov-Demo
           --fallback-bundle-version 1
-          --additional-symbol-graph-dir DemoSwiftPackage/.build
+          --additional-symbol-graph-dir XCCov-Demo/.build
           --output-path docs
 
 
