@@ -35,7 +35,8 @@ jobs:
       - name: Run docc build
         run: sh doccc.sh
 #       - name Commit documentation
-      - run: |
+      - name: do git push
+        run: |
               git config --global user.email "abhinav.dobhal@telusinternational.com"
               git config --global user.name "abhinav-ti"
 
