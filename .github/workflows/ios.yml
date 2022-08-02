@@ -25,11 +25,25 @@ jobs:
       - name: Select Xcode Version
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '13.1'
+          xcode-version: '13.4.1'
       - name: Install Ruby Dependencies
         run: bundle install
       - name: Install Fastlane
         run: gem install fastlane -no-rdoc --no-document
+        
+#      - name: Generate Documentation
+#        uses: SwiftDocOrg/swift-doc@master
+#        with:
+#          inputs: "Sources"
+#          module-name: MyLibrary
+#          output: "Documentation"
+#      - name: Upload Documentation to Wiki
+#        uses: SwiftDocOrg/github-wiki-publish-action@v1
+#        with:
+#          path: "Documentation"
+#        env:
+#          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+
 #      - name: Run Unit Test
 #        run: bundle exec fastlane run_test_suite
       - name: Run docc build
