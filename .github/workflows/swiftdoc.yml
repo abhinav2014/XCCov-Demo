@@ -27,7 +27,7 @@ jobs:
               git add Documentation
               git commit -m "message"
 
-              git push https://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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
+              git push https://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@github.com/abhinav2014/XCCov-Demo.git HEAD:master -q
 
 #      - name: Upload Documentation to Wiki
 #        uses: SwiftDocOrg/github-wiki-publish-action@v1
