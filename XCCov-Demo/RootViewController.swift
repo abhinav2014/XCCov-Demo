@@ -56,7 +56,13 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
     var _modelController: ModelController? = nil
 
     // MARK: - UIPageViewController delegate methods
-
+    
+    
+    /// Set the spine position to "min" and the page view controller's view controllers
+    /// - Parameters:
+    ///   - pageViewController: The current pageViewController instance
+    ///   - orientation: Current orientation of the device
+    /// - Returns: The generated UIPageViewControllerSpineLocation instace
     func pageViewController(_ pageViewController: UIPageViewController, spineLocationFor orientation: UIInterfaceOrientation) -> UIPageViewControllerSpineLocation {
         if (orientation == .portrait) || (orientation == .portraitUpsideDown) || (UIDevice.current.userInterfaceIdiom == .phone) {
             // In portrait orientation or on iPhone: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to true, so set it to false here.

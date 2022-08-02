@@ -29,7 +29,12 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         let dateFormatter = DateFormatter()
         pageData = dateFormatter.monthSymbols
     }
-
+    
+    /// Gives viewcontroller instance at a given index
+    /// - Parameters:
+    ///   - index: The index at which viewcontroller is to be extracted
+    ///   - storyboard: Storyboard in which the viewcontroller is defined
+    /// - Returns: An instance of the desired viewcontroller
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
         // Return the data view controller for the given index.
         if (self.pageData.count == 0) || (index >= self.pageData.count) {
@@ -41,7 +46,10 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         dataViewController.dataObject = self.pageData[index]
         return dataViewController
     }
-
+    
+    /// Return the index of the given data view controller
+    /// - Parameter viewController: Instance of the viewcontroller for which the index is to be found
+    /// - Returns: Index the the given viewcontroller
     func indexOfViewController(_ viewController: DataViewController) -> Int {
         // Return the index of the given data view controller.
         // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.

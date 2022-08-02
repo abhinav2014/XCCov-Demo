@@ -1,0 +1,7 @@
+Target dependency graph (3 targets)
+Alamofire in Pods, no dependencies
+Pods-XCCov-Demo in Pods, depends on:
+Alamofire in Pods (explicit)
+XCCov-Demo in XCCov-Demo, depends on:
+Pods-XCCov-Demo in Pods (implicit dependency via file 'Pods_XCCov_Demo.framework' in build phase 'Link Binary')
+Alamofire in Pods (implicit dependency via options '-framework Alamofire' in build setting 'OTHER_LDFLAGS')

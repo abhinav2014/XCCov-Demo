@@ -1,0 +1,14 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/ba-000277306/Downloads/XCCov-Demo-master/docc_path/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/ba-000277306/Downloads/XCCov-Demo-master/docc_path/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Alamofire.build/unextended-module.modulemap",
+    }]
+  }]
+}

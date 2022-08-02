@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>377EB703-8D7D-46AD-8CB5-C346D1F5BE34</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>377EB703-8D7D-46AD-8CB5-C346D1F5BE34.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>XCCov-Demo project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>XCCov-Demo</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace XCCov-Demo with scheme XCCov-Demo</string>
+			<key>timeStartedRecording</key>
+			<real>681139129.73126996</real>
+			<key>timeStoppedRecording</key>
+			<real>681139129.88371396</real>
+			<key>title</key>
+			<string>Building workspace XCCov-Demo with scheme XCCov-Demo</string>
+			<key>uniqueIdentifier</key>
+			<string>377EB703-8D7D-46AD-8CB5-C346D1F5BE34</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
