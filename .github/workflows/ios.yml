@@ -34,8 +34,8 @@ jobs:
 #        run: bundle exec fastlane run_test_suite
       - name: Run docc build
         run: sh doccc.sh
-      - name Commit documentation
-        bash: |
+#       - name Commit documentation
+      -run: |
               git config --global user.email "abhinav.dobhal@telusinternational.com"
               git config --global user.name "abhinav-ti"
 
