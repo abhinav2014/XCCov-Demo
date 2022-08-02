@@ -5,7 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   push:
-    branches: [ "masters" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "main" ]
 
@@ -30,19 +30,14 @@ jobs:
         run: bundle install
       - name: Install Fastlane
         run: gem install fastlane -no-rdoc --no-document
-        
-      - name: Generate Documentation
-        uses: SwiftDocOrg/swift-doc@master
-        with:
-          inputs: "Sources"
-          module-name: MyLibrary
-          output: "Documentation"
-      - name: Upload Documentation to Wiki
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
-        with:
-          path: "Documentation"
-        env:
-          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      - name: swift docc action
+        uses: fwcd/swift-docc-action@v1
+          with:
+            target: "XCCov-Demo"
+            output: ./docs
+            hosting-base-path: "XCCov-Demo"
+            disable-indexing: 'true'
+            transform-for-static-hosting: 'true'
 
 #      - name: Run Unit Test
 #        run: bundle exec fastlane run_test_suite
@@ -55,7 +50,7 @@ jobs:
               git config --global user.name "abhinav-ti"
 
               #git add filename.ext
-              git add Documentation
+              git add docs
               git commit -m "message"
 
               git push https://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@github.com/abhinav2014/XCCov-Demo.git master
