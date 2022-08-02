@@ -3,37 +3,56 @@ name: Documentation
 
 on:
   push:
-    branches: [ "masters" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "main" ]
 
-jobs:
-  build:
-    env:
-      GITHUB_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-    runs-on: ubuntu-latest
-
+test:
+    runs-on: macos-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
-      - name: Generate Documentation
-        uses: SwiftDocOrg/swift-doc@master
-        with:
-          inputs: "XCCov-Demo"
-          module-name: XCCov-Demo
-          output: "Documentation"
-          format: "html"
-      - name: do git push
-        run: |
-              git config --global user.email "abhinav.dobhal44@gmail.com"
-              git config --global user.name "abhinav2014"
-              git config --global user.password "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"
+      - uses: actions/checkout@v2
+      - run: |
+          mkdir DemoSwiftPackage
+          cd DemoSwiftPackage
+          swift package init
+          mkdir Sources/DemoSwiftPackage/DemoSwiftPackage.docc
+          swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
+      - uses: ./
+      - run: docc convert
+          DemoSwiftPackage/Sources/DemoSwiftPackage/DemoSwiftPackage.docc
+          --fallback-display-name DemoSwiftPackage
+          --fallback-bundle-identifier DemoSwiftPackage
+          --fallback-bundle-version 1
+          --additional-symbol-graph-dir DemoSwiftPackage/.build
+          --output-path docs
 
-              #git add filename.ext
-              git add Documentation
-              git commit -m "message"
-
-              git push origin master
+#jobs:
+#  build:
+#    env:
+#      GITHUB_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v1
+#      - name: Generate Documentation
+#        uses: SwiftDocOrg/swift-doc@master
+#        with:
+#          inputs: "XCCov-Demo"
+#          module-name: XCCov-Demo
+#          output: "Documentation"
+#          format: "html"
+#      - name: do git push
+#        run: |
+#              git config --global user.email "abhinav.dobhal44@gmail.com"
+#              git config --global user.name "abhinav2014"
+#              git config --global user.password "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"
+#
+#              #git add filename.ext
+#              git add Documentation
+#              git commit -m "message"
+#
+#              git push origin master
 
 
 
