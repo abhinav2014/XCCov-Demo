@@ -31,23 +31,23 @@ jobs:
       - name: Install Fastlane
         run: gem install fastlane -no-rdoc --no-document
         
-#      - name: Generate Documentation
-#        uses: SwiftDocOrg/swift-doc@master
-#        with:
-#          inputs: "Sources"
-#          module-name: MyLibrary
-#          output: "Documentation"
-#      - name: Upload Documentation to Wiki
-#        uses: SwiftDocOrg/github-wiki-publish-action@v1
-#        with:
-#          path: "Documentation"
-#        env:
-#          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      - name: Generate Documentation
+        uses: SwiftDocOrg/swift-doc@master
+        with:
+          inputs: "Sources"
+          module-name: MyLibrary
+          output: "Documentation"
+      - name: Upload Documentation to Wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
+        with:
+          path: "Documentation"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
 #      - name: Run Unit Test
 #        run: bundle exec fastlane run_test_suite
-      - name: Run docc build
-        run: sh doccc.sh
+#      - name: Run docc build
+#        run: sh doccc.sh
 #       - name Commit documentation
       - name: do git push
         run: |
@@ -55,7 +55,7 @@ jobs:
               git config --global user.name "abhinav-ti"
 
               #git add filename.ext
-              git add docc_path_html
+              git add Documentation
               git commit -m "message"
 
               git push https://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@github.com/abhinav2014/XCCov-Demo.git master
