@@ -7,7 +7,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
-test:
+jobs:
+  test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,6 +26,7 @@ test:
           --fallback-bundle-version 1
           --additional-symbol-graph-dir DemoSwiftPackage/.build
           --output-path docs
+
 
 #jobs:
 #  build:
