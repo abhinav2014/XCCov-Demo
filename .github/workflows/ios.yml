@@ -30,12 +30,12 @@ jobs:
         run: bundle install
       - name: Install Fastlane
         run: gem install fastlane -no-rdoc --no-document
-      - name: Run Unit Test
-        run: bundle exec fastlane run_test_suite
-      - name: Run codecov
+#      - name: Run Unit Test
+#        run: bundle exec fastlane run_test_suite
+      - name: Run docc build
         run: sh doccc.sh
       - name Commit documentation
-        run: |
+        bash: |
               git config --global user.email "abhinav.dobhal@telusinternational.com"
               git config --global user.name "abhinav-ti"
 
