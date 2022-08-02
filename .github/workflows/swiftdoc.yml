@@ -31,7 +31,7 @@ jobs:
               git config --global user.password "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"
               git add .
               git commit -m "message"
-              git push https://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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
+              git push https://Abhinavdo1@github.com/abhinav2014/XCCov-Demo.git HEAD:master
 
 
 #jobs:
