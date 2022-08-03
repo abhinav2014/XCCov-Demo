@@ -53,15 +53,19 @@ jobs:
 #      - name: Run docc build
 #        run: sh doccc.sh
 #       - name Commit documentation
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build-Files
+          path: Documentation/*
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
       - name: do git push
         run: |
               git config --global user.email "abhinav.dobhal44@gmail.com"
               git config --global user.name "abhinav2014"
-
-              #git add filename.ext
               git add -A
               git commit -m "message"
-
               git push https://abhinav2014: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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
 
         
