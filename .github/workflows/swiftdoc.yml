@@ -49,10 +49,9 @@ jobs:
           module-name: "XCCov-Demo"
           output: "Documentation"
           format: "html"
-#      - name: Permit Documentation
-#        run: |
-#          git config --system core.longpaths true
-#          git update-index --chmod=+x Documentation/*
+      - name: Permit Documentation
+        run: |
+          chown -R Documentation
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
