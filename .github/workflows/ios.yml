@@ -30,6 +30,10 @@ jobs:
         run: bundle install
       - name: Install Fastlane
         run: gem install fastlane -no-rdoc --no-document
+      - name: swift package
+        run: |
+          cd XCCov-Demo
+          swift package init
       - name: swift docc action
         uses: fwcd/swift-docc-action@v1
         with:
