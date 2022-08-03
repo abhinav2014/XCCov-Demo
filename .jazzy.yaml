@@ -9,7 +9,7 @@ xcodebuild_arguments:
 - XCCov-Demo
 - CODE_SIGNING_ALLOWED = NO
 author: AuthorName
-module: XCCov-Demo
+#module: XCCov-Demo
 module_version: 1.0
 copyright: Copyright message here
 readme: README.md
