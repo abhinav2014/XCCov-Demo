@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-XCCov-Demo in XCCov-Demo, no dependencies

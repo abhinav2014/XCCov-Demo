@@ -1,9 +1,0 @@
-version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
-options: "7a825f42e2b268c00d923a2dd84a34048ffe6271b81768e21e439213b1287627"
-build_start_time: [1659549950, 952507019]
-build_end_time: [1659549956, 234333038]
-inputs:
-  "/Users/ba-000277306/Downloads/XCCov-Demo-master/XCCov-Demo/AppDelegate.swift": [1658858479, 426930427]
-  "/Users/ba-000277306/Downloads/XCCov-Demo-master/XCCov-Demo/DataViewController.swift": [1658858479, 430381298]
-  "/Users/ba-000277306/Downloads/XCCov-Demo-master/XCCov-Demo/ModelController.swift": [1659548105, 589861154]
-  "/Users/ba-000277306/Downloads/XCCov-Demo-master/XCCov-Demo/RootViewController.swift": [1659511733, 356051206]
