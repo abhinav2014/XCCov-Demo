@@ -36,7 +36,7 @@ jobs:
   build:
     env:
       GITHUB_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Build-Files
-          path: Documentation
+          path: Documentation/*
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
 
