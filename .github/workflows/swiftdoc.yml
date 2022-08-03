@@ -50,7 +50,7 @@ jobs:
           format: "html"
       - name: do git push
         run: |
-              chown Documentation
+              chown -R Documentation
               git config --global user.email "abhinav.dobhal44@gmail.com"
               git config --global user.name "abhinav2014"
 
