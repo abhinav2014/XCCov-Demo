@@ -244,6 +244,14 @@ SWIFT_CLASS("_TtC10XCCov_Demo18DataViewController")
 SWIFT_CLASS("_TtC10XCCov_Demo15ModelController")
 @interface ModelController : NSObject <UIPageViewControllerDataSource>
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// Show view Controller Before
+/// \param pageViewController An instance of current Page ViewController
+///
+/// \param viewController An instance of current ViewController
+///
+///
+/// returns:
+/// An instance of ViewController
 - (UIViewController * _Nullable)pageViewController:(UIPageViewController * _Nonnull)pageViewController viewControllerBeforeViewController:(UIViewController * _Nonnull)viewController SWIFT_WARN_UNUSED_RESULT;
 - (UIViewController * _Nullable)pageViewController:(UIPageViewController * _Nonnull)pageViewController viewControllerAfterViewController:(UIViewController * _Nonnull)viewController SWIFT_WARN_UNUSED_RESULT;
 @end
