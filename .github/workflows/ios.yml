@@ -35,7 +35,7 @@ jobs:
 #          cd XCCov-Demo
 #          swift package init
       - name: swift docc action
-        run: /usr/bin/swift package ./docs generate-documentation --output-path ./docs --hosting-base-path XCCov-Demo --disable-indexing --transform-for-static-hosting
+        run: /usr/bin/swift package ./docs generate-documentation --hosting-base-path XCCov-Demo --disable-indexing --transform-for-static-hosting
 #        uses: fwcd/swift-docc-action@v1
 #        with:
 #          target: "XCCov-Demo"
