@@ -7,67 +7,68 @@ on:
   pull_request:
     branches: [ "main" ]
 
-#jobs:
-#  test:
-#    runs-on: macos-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - run: |
-#          cd XCCov-Demo
-#          mkdir Sources/XCCov-Demo/XCCov-Demo.docc
-#      - uses: dastrobu/setup-swift-docc@v0
-#      - run: docc convert
-#          XCCov-Demo/Sources/XCCov-Demo/XCCov-Demo.docc
-#          --fallback-display-name XCCov-Demo
-#          --fallback-bundle-identifier XCCov-Demo
-#          --fallback-bundle-version 1
-#          --additional-symbol-graph-dir XCCov-Demo/.build
-#          --output-path docs
-#      - name: do git push
-#        run: |
-#              git config --global user.email "abhinav.dobhal44@gmail.com"
-#              git config --global user.name "abhinav2014"
-#              git add .
-#              git commit -m "documentation changes"
-#              git push https://abhinav2014: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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
-
-
 jobs:
-  build:
-    env:
-      GITHUB_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-    runs-on: ubuntu-latest
-
+  test:
+    runs-on: macos-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-#        with:
-#          lfs: true
-#          token: "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"
-      - name: Generate Documentation
-        uses: SwiftDocOrg/swift-doc@master
-        with:
-          inputs: "XCCov-Demo"
-          module-name: "XCCov-Demo"
-          output: "Documentation"
-          format: "html"
-      - name: Permit Documentation
-        run: chmod +x Documentation
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: Build-Files
-          path: Documentation/*
-      - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v3
-
+      - uses: actions/checkout@v2
+      - run: |
+          cd XCCov-Demo
+          rm Package.swift
+          mkdir Sources/XCCov-Demo/XCCov-Demo.docc
+      - uses: dastrobu/setup-swift-docc@v0
+      - run: docc convert
+          XCCov-Demo/Sources/XCCov-Demo/XCCov-Demo.docc
+          --fallback-display-name XCCov-Demo
+          --fallback-bundle-identifier XCCov-Demo
+          --fallback-bundle-version 1
+          --additional-symbol-graph-dir XCCov-Demo/.build
+          --output-path docs
       - name: do git push
         run: |
               git config --global user.email "abhinav.dobhal44@gmail.com"
               git config --global user.name "abhinav2014"
-              git add -A
-              git commit -m "message"
+              git add .
+              git commit -m "documentation changes"
               git push https://abhinav2014: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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
+
+
+#jobs:
+#  build:
+#    env:
+#      GITHUB_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v2
+##        with:
+##          lfs: true
+##          token: "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"
+#      - name: Generate Documentation
+#        uses: SwiftDocOrg/swift-doc@master
+#        with:
+#          inputs: "XCCov-Demo"
+#          module-name: "XCCov-Demo"
+#          output: "Documentation"
+#          format: "html"
+##      - name: Permit Documentation
+##        run: chmod +x Documentation
+#      - name: Upload artifacts
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: Build-Files
+#          path: Documentation/*
+#      - name: Download all workflow run artifacts
+#        uses: actions/download-artifact@v3
+#
+#      - name: do git push
+#        run: |
+#              git config --global user.email "abhinav.dobhal44@gmail.com"
+#              git config --global user.name "abhinav2014"
+#              git add -A
+#              git commit -m "message"
+#              git push https://abhinav2014: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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
 
 
 
