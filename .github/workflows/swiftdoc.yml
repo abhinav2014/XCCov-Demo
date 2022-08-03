@@ -36,7 +36,7 @@ jobs:
   build:
     env:
       GITHUB_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
