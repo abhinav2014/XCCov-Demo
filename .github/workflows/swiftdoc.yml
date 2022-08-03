@@ -16,7 +16,7 @@ jobs:
           cd XCCov-Demo
           swift package init
           mkdir Sources/XCCov-Demo/XCCov-Demo.docc
-          swift build -f --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
+          swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
       - uses: dastrobu/setup-swift-docc@v0
       - run: docc convert
           XCCov-Demo/Sources/XCCov-Demo/XCCov-Demo.docc
@@ -27,11 +27,11 @@ jobs:
           --output-path docs
       - name: do git push
         run: |
-              git config --global user.email "xx"
-              git config --global user.name "xx"
+              git config --global user.email "abhinav.dobhal44@gmail.com"
+              git config --global user.name "abhinav2014"
               git add .
               git commit -m "documentation changes"
-              git push https://xx:xxx@github.com/abhinav2014/XCCov-Demo.git HEAD:master
+              git push https://abhinav2014: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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
 
 
 #jobs:
