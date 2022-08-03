@@ -57,7 +57,12 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     }
 
     // MARK: - Page View Controller Data Source
-
+    
+    /// Show view Controller Before
+    /// - Parameters:
+    ///   - pageViewController: An instance of current Page ViewController
+    ///   - viewController: An instance of current ViewController
+    /// - Returns: An instance of ViewController
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = self.indexOfViewController(viewController as! DataViewController)
         if (index == 0) || (index == NSNotFound) {
