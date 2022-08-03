@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)"
+options: "7a825f42e2b268c00d923a2dd84a34048ffe6271b81768e21e439213b1287627"
+build_start_time: [1659551333, 529723167]
+build_end_time: [1659551341, 321289062]
+inputs:
+  "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/AppDelegate.swift": [1659551313, 8152484]
+  "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/DataViewController.swift": [1659551313, 9466648]
+  "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/ModelController.swift": [1659551313, 9859800]
+  "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/RootViewController.swift": [1659551313, 10209083]
