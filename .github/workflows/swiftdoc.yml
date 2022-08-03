@@ -52,12 +52,12 @@ jobs:
           output: "Documentation"
           format: "html"
       - name: Upload artifacts
-          uses: actions/upload-artifact@v3
-          with:
-              name: Build-Files
-              path: Documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build-Files
+          path: Documentation
       - name: Download all workflow run artifacts
-          uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3
 
       - name: do git push
         run: |
