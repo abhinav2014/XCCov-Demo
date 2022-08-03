@@ -51,7 +51,7 @@ jobs:
           format: "html"
       - name: Permit Documentation
         run: |
-          chown -R Documentation/*
+          sudo chown -R $(id -u):$(id -g) ./Documentation
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
