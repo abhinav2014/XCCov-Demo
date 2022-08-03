@@ -29,7 +29,7 @@ jobs:
               git config --global user.email "xx"
               git config --global user.name "xx"
               git add .
-              git commit -m "message"
+              git commit -m "documentation changes"
               git push https://xx:xxx@github.com/abhinav2014/XCCov-Demo.git HEAD:master
 
 

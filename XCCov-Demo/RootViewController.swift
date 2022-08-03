@@ -61,7 +61,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
     /// Set the spine position to "min" and the page view controller's view controllers
     /// - Parameters:
     ///   - pageViewController: The current pageViewController instance
-    ///   - orientation: Current orientation of the device
+    ///   - orientation: Current orientation of the device used
     /// - Returns: The generated UIPageViewControllerSpineLocation instace
     func pageViewController(_ pageViewController: UIPageViewController, spineLocationFor orientation: UIInterfaceOrientation) -> UIPageViewControllerSpineLocation {
         if (orientation == .portrait) || (orientation == .portraitUpsideDown) || (UIDevice.current.userInterfaceIdiom == .phone) {
