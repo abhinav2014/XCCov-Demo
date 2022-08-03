@@ -29,7 +29,7 @@ jobs:
         with:
           xcode-version: '13.2.1'
       - name: Publish Jazzy Docs
-        uses: steven0351/publish-jazzy-docs@v1
+        uses: steven0351/publish-jazzy-docs@v2
         with:
           personal_access_token: "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"
           args: "--branch master"
