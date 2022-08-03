@@ -5,7 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   push:
-    branches: [ "masters" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "main" ]
 
@@ -53,7 +53,7 @@ jobs:
               git add docs
               git commit -m "message"
 
-              git push https://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@github.com/abhinav2014/XCCov-Demo.git master
+              git push https://abhinav2014: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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
 
         
 #      - name: Run xcov
