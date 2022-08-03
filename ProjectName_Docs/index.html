@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> 1.0 Docs</a> (17% documented)</p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/DataViewController.html">DataViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ModelController.html">ModelController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RootViewController.html">RootViewController</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='xccov-xcode-code-coverage-for-humans' class='heading'>xccov - Xcode Code Coverage for Humans</h1>
+
+<p><a href="https://codecov.io/gh/abhinav2014/XCCov-Demo"><img src="https://codecov.io/gh/abhinav2014/XCCov-Demo/branch/master/graph/badge.svg?token=U0BR49WC1C" alt="codecov"></a></p>
+
+<p>With Xcode 9.3, we have new command line tool <code>xccov</code> to view Xcode Code Coverage Reports in human readable format. </p>
+
+<p>This is quick demo of the <code>xccov</code> command line utility with black app. </p>
+<h2 id='pre-requisite' class='heading'>Pre-requisite</h2>
+
+<ul>
+<li>Xcode 9.3</li>
+</ul>
+<h2 id='generate-code-coverage-data' class='heading'>Generate Code Coverage Data</h2>
+
+<p>Clone this repository and build an app from command line. </p>
+<pre class="highlight plaintext"><code>        $ git clone 
+        $ cd XCCov-Demo
+        $ xcodebuild -project XCCov-Demo.xcodeproj/ -scheme XCCov-Demo -derivedDataPath Build/ -destination 'platform=iOS Simulator,OS=12.2,name=iPhone Xʀ' -enableCodeCoverage YES clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+</code></pre>
+
+<p>This will dump all the <code>DerivedData</code> inside the <code>Build</code> directory. </p>
+
+<p>This will generate the code coverage data at path <code>Build/Logs/Test/Run-{projectName_timestamp}.xcresult/3_Test</code> we will see code coverage with 
+<code>.xccovreport</code> and <code>.xccovarchive</code> extension. The cov-
+erage report contains line coverage percentages for each target, source file, and function/method that has coverage  infor-
+mation.  The  coverage  archive contains the raw execution counts for each file in the report.</p>
+<h2 id='using-code-xccov-code' class='heading'>Using <code>xccov</code></h2>
+
+<p>We can use <code>xccov</code> command line tool with <code>xcrun</code> untility if thats not inside the <code>$PATH</code> </p>
+
+<ul>
+<li><p>View Report in the plain format </p>
+<pre class="highlight plaintext"><code>    $ xcrun xccov view Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-40-58-+0100.xcresult/3_Test/action.xccovreport
+</code></pre></li>
+<li><p>View Report in the JSON format </p>
+<pre class="highlight plaintext"><code>    $ xcrun xccov view --json Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-40-58-+0100.xcresult/3_Test/action.xccovreport
+</code></pre></li>
+<li><p>List the files available for the code coverage data </p>
+<pre class="highlight plaintext"><code>    $ xcrun xccov view --file-list Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-40-58-+0100.xcresult/3_Test/action.xccovarchive
+</code></pre></li>
+<li><p>Show the coverage for perticular file </p>
+<pre class="highlight plaintext"><code>    $ xcrun xccov view --file ~/Desktop/XCCov-Demo/XCCov-Demo/AppDelegate.swift  Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-40-58-+0100.xcresult/3_Test/action.xccovarchive/
+</code></pre></li>
+<li><p>Merge Reports </p>
+<pre class="highlight plaintext"><code>    $ xcrun xccov merge --outReport ~/Desktop/out.xccovreport --outArchive ~/Desktop/out.acarchive Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-40-58-+0100.xcresult/3_Test/action.xccovreport Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-40-58-+0100.xcresult/3_Test/action.xccovarchive/ Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-52-58-+0100.xcresult/3_Test/action.xccovreport Build/Logs/Test/Run-XCCov-Demo-2019.04.03_07-52-58-+0100.xcresult/3_Test/action.xccovarchive/
+</code></pre>
+
+<p>This will create merge reports file on desktop. </p></li>
+</ul>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright message here</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
