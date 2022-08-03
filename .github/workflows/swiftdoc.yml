@@ -41,6 +41,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          lfs: true
+          token: "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"
       - name: Generate Documentation
         uses: SwiftDocOrg/swift-doc@master
         with:
