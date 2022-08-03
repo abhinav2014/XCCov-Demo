@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Generate Documentation
         uses: SwiftDocOrg/swift-doc@master
         with:
@@ -50,7 +50,6 @@ jobs:
           format: "html"
       - name: do git push
         run: |
-              chown -R Documentation
               git config --global user.email "abhinav.dobhal44@gmail.com"
               git config --global user.name "abhinav2014"
 
