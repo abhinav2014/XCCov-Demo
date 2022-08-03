@@ -32,7 +32,6 @@ jobs:
         uses: steven0351/publish-jazzy-docs@v1
         with:
           personal_access_token: "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"
-          args: "--branch master"
 #      - name: Install Ruby Dependencies
 #        run: bundle install
 #      - name: Install Fastlane
