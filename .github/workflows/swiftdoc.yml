@@ -12,8 +12,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
+#      - run: |
+#          swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
       - uses: dastrobu/setup-swift-docc@v0
       - run: docc convert
           XCCov-Demo/Sources/XCCov-Demo/XCCov-Demo.docc
