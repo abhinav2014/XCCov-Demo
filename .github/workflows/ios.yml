@@ -53,6 +53,9 @@ jobs:
 #      - name: Run docc build
 #        run: sh doccc.sh
 #       - name Commit documentation
+      - name: Permit Documentation
+        run: |
+          sudo chown -R $(id -u):$(id -g) ./docs
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
