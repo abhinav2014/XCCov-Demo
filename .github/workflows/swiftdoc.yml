@@ -13,9 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          cd XCCov-Demo
-          swift package init
-          mkdir Sources/XCCov-Demo/XCCov-Demo.docc
           swift build --target XCCov-Demo -Xswiftc -emit-symbol-graph -Xswiftc -emit-symbol-graph-dir -Xswiftc .build
       - uses: dastrobu/setup-swift-docc@v0
       - run: docc convert
@@ -72,3 +69,7 @@ jobs:
 #          path: "Documentation"
 #        env:
 #          GH_PERSONAL_ACCESS_TOKEN: "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"
+
+#          cd XCCov-Demo
+#          swift package init
+#          mkdir Sources/XCCov-Demo/XCCov-Demo.docc
