@@ -35,14 +35,14 @@ jobs:
 #          cd XCCov-Demo
 #          swift package init
       - name: swift docc action
-#        run: /usr/bin/swift package ./docs generate-documentation --target XCCov-Demo --output-path ./docs --hosting-base-path XCCov-Demo --disable-indexing --transform-for-static-hosting
-        uses: fwcd/swift-docc-action@v1
-        with:
+        run: /usr/bin/swift package ./docs generate-documentation --output-path ./docs --hosting-base-path XCCov-Demo --disable-indexing --transform-for-static-hosting
+#        uses: fwcd/swift-docc-action@v1
+#        with:
 #          target: "XCCov-Demo"
-          output: ./docs
-          hosting-base-path: "XCCov-Demo"
-          disable-indexing: 'true'
-          transform-for-static-hosting: 'true'
+#          output: ./docs
+#          hosting-base-path: "XCCov-Demo"
+#          disable-indexing: 'true'
+#          transform-for-static-hosting: 'true'
 
 #      - name: Run Unit Test
 #        run: bundle exec fastlane run_test_suite
