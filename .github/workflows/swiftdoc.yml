@@ -50,15 +50,13 @@ jobs:
           inputs: "XCCov-Demo"
           module-name: "XCCov-Demo"
           output: "Documentation"
-          format: "html"
+#          format: "html"
       - name: do git push
         run: |
               git config --global user.email "abhinav.dobhal44@gmail.com"
               git config --global user.name "abhinav2014"
-
-              git add -A
+              git add Documentation
               git commit -m "message"
-
               git push https://abhinav2014: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@github.com/abhinav2014/XCCov-Demo.git HEAD:master
 
 
