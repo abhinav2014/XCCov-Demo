@@ -52,7 +52,7 @@ jobs:
           output: "Documentation"
           format: "html"
       - name: Permit Documentation
-        uses: chmod +x Documentation
+        run: chmod +x Documentation
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
