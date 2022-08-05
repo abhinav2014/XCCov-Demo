@@ -72,7 +72,12 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         index -= 1
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
-
+    
+    /// Show view controller after a given view controller
+    /// - Parameters:
+    ///   - pageViewController: An instance of current Page ViewController
+    ///   - viewController: An instance of current ViewController
+    /// - Returns: An instance of Viewcontroller  after the given view controller
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         var index = self.indexOfViewController(viewController as! DataViewController)
         if index == NSNotFound {

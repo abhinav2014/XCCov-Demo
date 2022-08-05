@@ -18,12 +18,16 @@ class DataViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    /// did Receive Memory Warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    /// Called just after view is loaded and is about to appear on window
+    /// - Parameter animated: Boolean to ask if the navigation is to be shown with animation.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject
