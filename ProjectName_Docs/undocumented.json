@@ -85,20 +85,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/DataViewController.swift",
-      "line": 22,
-      "symbol": "DataViewController.didReceiveMemoryWarning()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/DataViewController.swift",
-      "line": 27,
-      "symbol": "DataViewController.viewWillAppear(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/ModelController.swift",
       "line": 21,
       "symbol": "ModelController",
@@ -116,13 +102,6 @@
       "file": "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/ModelController.swift",
       "line": 26,
       "symbol": "ModelController.init()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/XCCov-Demo/XCCov-Demo/XCCov-Demo/ModelController.swift",
-      "line": 76,
-      "symbol": "ModelController.pageViewController(_:viewControllerAfter:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
