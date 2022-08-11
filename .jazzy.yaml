@@ -7,7 +7,7 @@ xcodebuild_arguments:
 - -scheme
 - XCCov-Demo
 - CODE_SIGNING_ALLOWED = NO
-#hide-documentation-coverage
+hide-documentation-coverage: YES
 author: AuthorName
 #module: XCCov-Demo
 module_version: 1.0
