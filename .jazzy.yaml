@@ -8,6 +8,7 @@ xcodebuild_arguments:
 - -scheme
 - XCCov-Demo
 - CODE_SIGNING_ALLOWED = NO
+--[no-]hide-documentation-coverage
 author: AuthorName
 #module: XCCov-Demo
 module_version: 1.0
@@ -16,4 +17,4 @@ readme: README.md
 min_acl: internal
 # Options : [apple | fullwidth | jony | DIRPATH]
 # Which theme to use. Specify either ‘apple’ (default), one of the other built-in theme names, or the path to your mustache templates and other assets for a custom theme.Default: apple
-theme: apple
+theme: fullwidth
